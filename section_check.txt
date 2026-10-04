@@ -1,0 +1,416 @@
+﻿    </section>
+
+    <!-- ==========================================================================
+         CURATED TOUR PACKAGES SECTION
+         ========================================================================== -->
+    <section class="section-tours" id="tours">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tag">Signature Journeys</span>
+          <h2 class="section-title">Curated Nuwara Eliya Tour Packages</h2>
+          <p class="section-subtitle">
+            Every itinerary is fully flexible and crafted to show you the best of "Little England", from serene lakeside mornings to exhilarating mountain safaris.
+          </p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="tour-filter-bar">
+          <button class="filter-btn active" data-filter="all">All Experiences</button>
+          <button class="filter-btn" data-filter="day-tour">Day Tours</button>
+          <button class="filter-btn" data-filter="adventure">Waterfalls &amp; Adventure</button>
+          <button class="filter-btn" data-filter="heritage">Colonial &amp; Tea</button>
+          <button class="filter-btn" data-filter="multi-day">Multi-Day Retreats</button>
+        </div>
+
+        <!-- Tour Grid -->
+        <div class="tours-grid" id="toursGrid">
+
+          <!-- Tour Card 1: Little England Explorer -->
+          <article class="tour-card" data-category="day-tour heritage">
+            <div class="tour-image-wrap">
+              <img src="assets/images/lake-gregory-1.jpg" alt="Lake Gregory in Nuwara Eliya" class="tour-img" loading="lazy">
+              <span class="badge-gold tour-badge-top">Most Popular</span>
+              <div class="tour-price-tag">
+                <span>From</span>
+                <span class="price-amount" data-base-price="45">$45</span>
+                <span>/ person</span>
+              </div>
+            </div>
+            <div class="tour-content">
+              <div class="tour-meta">
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Full Day (8 Hours)
+                </span>
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Nuwara Eliya Town
+                </span>
+              </div>
+              <h3 class="tour-name">The Classic "Little England" Discovery</h3>
+              <p class="tour-summary">
+                The essential Nuwara Eliya experience. Explore Lake Gregory boating, stroll through manicured Victoria Botanical Gardens, enjoy colonial-era architecture, and visit Pedro Tea Estate.
+              </p>
+              <div class="tour-features">
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Lake Gregory motor boat or swans ride</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Pedro Tea Estate tour &amp; artisanal tasting</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Victoria Park gardens &amp; heritage walk</span>
+                </div>
+              </div>
+
+              <!-- Accordion Toggle -->
+              <button class="itinerary-toggle" type="button">
+                <span class="itinerary-btn-text">View Day-by-Day Plan</span>
+                <span class="itinerary-arrow">â–¼</span>
+              </button>
+              <div class="itinerary-drawer">
+                <div class="itinerary-step"><strong>08:30 AM:</strong> Hotel pickup in comfortable AC car.</div>
+                <div class="itinerary-step"><strong>09:15 AM:</strong> Victoria Park stroll and nearby colonial-era heritage sights.</div>
+                <div class="itinerary-step"><strong>11:00 AM:</strong> Pedro Tea Estate factory demonstration &amp; tea terrace walk.</div>
+                <div class="itinerary-step"><strong>01:00 PM:</strong> Optional colonial high tea or lakeside lunch.</div>
+                <div class="itinerary-step"><strong>02:30 PM:</strong> Lake Gregory recreational boat cruise &amp; pony rides.</div>
+                <div class="itinerary-step"><strong>04:30 PM:</strong> Scenic drive to Loverâ€™s Leap waterfall for sunset photos.</div>
+              </div>
+
+              <div class="tour-card-actions">
+                <button class="btn btn-gold btn-card-book js-open-modal" data-tour="little-england">Instant Quote</button>
+                <a href="#" class="btn-card-whatsapp" data-tour-title="The Classic Little England Discovery" data-tour-price="$45">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.177.182-.076.356.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tour Card 2: Bomburu Ella Wild Cascades -->
+          <article class="tour-card" data-category="day-tour adventure">
+            <div class="tour-image-wrap">
+              <img src="assets/images/bomburu-ella-waterfall.jpg" alt="Bomburu Ella Waterfall" class="tour-img" loading="lazy">
+              <span class="badge-emerald tour-badge-top">Adventure Pick</span>
+              <div class="tour-price-tag">
+                <span>From</span>
+                <span class="price-amount" data-base-price="55">$55</span>
+                <span>/ person</span>
+              </div>
+            </div>
+            <div class="tour-content">
+              <div class="tour-meta">
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Full Day Trek (7 Hours)
+                </span>
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Perawella / Welimada
+                </span>
+              </div>
+              <h3 class="tour-name">Bomburu Ella Cascades &amp; Valley Trek</h3>
+              <p class="tour-summary">
+                Journey to Sri Lanka's widest and most thunderous waterfall. Hike through emerald vegetable cultivation valleys, cross wooden footbridges, and swim in natural rock pools fed by pure mountain streams.
+              </p>
+              <div class="tour-features">
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Guided hike to the foot of Bomburu Ella</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Scenic village countryside &amp; terraced valley walk</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Complimentary picnic lunch &amp; mountain spring dip</span>
+                </div>
+              </div>
+
+              <!-- Accordion Toggle -->
+              <button class="itinerary-toggle" type="button">
+                <span class="itinerary-btn-text">View Day-by-Day Plan</span>
+                <span class="itinerary-arrow">â–¼</span>
+              </button>
+              <div class="itinerary-drawer">
+                <div class="itinerary-step"><strong>08:00 AM:</strong> Scenic drive from Nuwara Eliya through Hakgala pass.</div>
+                <div class="itinerary-step"><strong>09:30 AM:</strong> Arrive at Perawella trailhead; safety briefing with guide.</div>
+                <div class="itinerary-step"><strong>10:00 AM:</strong> 1.5-hour trek along crystal aqueduct and mountain forest.</div>
+                <div class="itinerary-step"><strong>11:30 AM:</strong> Reach the majestic falls base; relax by thunderous spray.</div>
+                <div class="itinerary-step"><strong>01:00 PM:</strong> Valley picnic lunch and fresh tropical Ceylon fruits.</div>
+                <div class="itinerary-step"><strong>03:30 PM:</strong> Return transfer with photo stop at strawberry farms.</div>
+              </div>
+
+              <div class="tour-card-actions">
+                <button class="btn btn-gold btn-card-book js-open-modal" data-tour="bomburu-ella">Instant Quote</button>
+                <a href="#" class="btn-card-whatsapp" data-tour-title="Bomburu Ella Cascades & Valley Trek" data-tour-price="$55">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.177.182-.076.356.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tour Card 3: Horton Plains & World's End -->
+          <article class="tour-card" data-category="day-tour adventure">
+            <div class="tour-image-wrap">
+              <img src="assets/images/horton-plains.jpg" alt="Horton Plains and Worlds End" class="tour-img" loading="lazy">
+              <span class="badge-gold tour-badge-top">Must Experience</span>
+              <div class="tour-price-tag">
+                <span>From</span>
+                <span class="price-amount" data-base-price="70">$70</span>
+                <span>/ person</span>
+              </div>
+            </div>
+            <div class="tour-content">
+              <div class="tour-meta">
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Dawn Tour (6 Hours)
+                </span>
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Horton Plains National Park
+                </span>
+              </div>
+              <h3 class="tour-name">Horton Plains &amp; World's End Sunrise</h3>
+              <p class="tour-summary">
+                Depart in the crisp pre-dawn mist to witness the sunrise at 2,100 meters elevation. Trek across windswept montane grasslands to the 4,000-foot sheer cliff drop at World's End and Baker's Falls.
+              </p>
+              <div class="tour-features">
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Pre-dawn 4WD or luxury vehicle transfer</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>9.5 km circular nature trek (World's End &amp; Baker's Falls)</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Sambhur deer spotting &amp; endemic cloud forest birds</span>
+                </div>
+              </div>
+
+              <!-- Accordion Toggle -->
+              <button class="itinerary-toggle" type="button">
+                <span class="itinerary-btn-text">View Day-by-Day Plan</span>
+                <span class="itinerary-arrow">â–¼</span>
+              </button>
+              <div class="itinerary-drawer">
+                <div class="itinerary-step"><strong>05:00 AM:</strong> Early morning departure with breakfast box from hotel.</div>
+                <div class="itinerary-step"><strong>06:15 AM:</strong> Arrive at park gates; start trek in crisp mountain air.</div>
+                <div class="itinerary-step"><strong>07:30 AM:</strong> Reach Greater Worldâ€™s End cliff edge before mist rolls in.</div>
+                <div class="itinerary-step"><strong>08:45 AM:</strong> Visit Little Worldâ€™s End and cascading Bakerâ€™s Falls.</div>
+                <div class="itinerary-step"><strong>11:30 AM:</strong> Stop at Ambewela Highland Dairy Farm on the return journey.</div>
+              </div>
+
+              <div class="tour-card-actions">
+                <button class="btn btn-gold btn-card-book js-open-modal" data-tour="horton-plains">Instant Quote</button>
+                <a href="#" class="btn-card-whatsapp" data-tour-title="Horton Plains & World's End Sunrise" data-tour-price="$70">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.177.182-.076.356.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tour Card 4: 2D/1N Highland Tea & Colonial Retreat -->
+          <article class="tour-card" data-category="multi-day heritage">
+            <div class="tour-image-wrap">
+              <img src="assets/images/luxury-tea-terrace.jpg" alt="Colonial Tea Retreat" class="tour-img" loading="lazy">
+              <span class="badge-gold tour-badge-top">Luxury Heritage</span>
+              <div class="tour-price-tag">
+                <span>From</span>
+                <span class="price-amount" data-base-price="140">$140</span>
+                <span>/ person</span>
+              </div>
+            </div>
+            <div class="tour-content">
+              <div class="tour-meta">
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  2 Days / 1 Night
+                </span>
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Highland Retreat
+                </span>
+              </div>
+              <h3 class="tour-name">Highland Tea &amp; Colonial Heritage Retreat</h3>
+              <p class="tour-summary">
+                An unforgettable luxury overnight getaway. Stay in a boutique tea planter's bungalow or heritage hotel, experience Victorian high tea at the Grand Hotel, and awaken to misty sunrise views over tea carpet slopes.
+              </p>
+              <div class="tour-features">
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Overnight stay in curated boutique hill country hotel</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Quintessential English High Tea at The Grand Hotel</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Private tea master session &amp; Single Tree Hill viewpoint</span>
+                </div>
+              </div>
+
+              <!-- Accordion Toggle -->
+              <button class="itinerary-toggle" type="button">
+                <span class="itinerary-btn-text">View Day-by-Day Plan</span>
+                <span class="itinerary-arrow">â–¼</span>
+              </button>
+              <div class="itinerary-drawer">
+                <div class="itinerary-step"><strong>Day 1 - Morning:</strong> Pick up, scenic drive through ramboda &amp; tea waterfalls.</div>
+                <div class="itinerary-step"><strong>Day 1 - Afternoon:</strong> Check-in to heritage lodge; Grand Hotel high tea experience.</div>
+                <div class="itinerary-step"><strong>Day 1 - Sunset:</strong> Lake Gregory boat ride and evening colonial walk.</div>
+                <div class="itinerary-step"><strong>Day 2 - Dawn:</strong> Sunrise from Single Tree Hill with 360-degree valley view.</div>
+                <div class="itinerary-step"><strong>Day 2 - Afternoon:</strong> Private tea pluckers trail, Pedro tea factory &amp; farewell lunch.</div>
+              </div>
+
+              <div class="tour-card-actions">
+                <button class="btn btn-gold btn-card-book js-open-modal" data-tour="tea-heritage">Instant Quote</button>
+                <a href="#" class="btn-card-whatsapp" data-tour-title="Highland Tea & Colonial Heritage Retreat" data-tour-price="$140">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.177.182-.076.356.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tour Card 5: Moon Plains 4x4 Mini World's End -->
+          <article class="tour-card" data-category="day-tour adventure">
+            <div class="tour-image-wrap">
+              <img src="assets/images/tea-estate-hills.jpg" alt="Moon Plains Nuwara Eliya" class="tour-img" loading="lazy">
+              <span class="badge-emerald tour-badge-top">Scenic Safari</span>
+              <div class="tour-price-tag">
+                <span>From</span>
+                <span class="price-amount" data-base-price="50">$50</span>
+                <span>/ person</span>
+              </div>
+            </div>
+            <div class="tour-content">
+              <div class="tour-meta">
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Half Day (4 Hours)
+                </span>
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Moon Plains &amp; Ambewela
+                </span>
+              </div>
+              <h3 class="tour-name">Moon Plains Mini World's End 4x4 Safari</h3>
+              <p class="tour-summary">
+                Board a customized 4WD open safari jeep to conquer the rolling crests of Moon Plains (Sandathanne). Bask in 360-degree panoramic views of 9 major mountain peaks including Mount Pidurutalagala.
+              </p>
+              <div class="tour-features">
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Rugged 4x4 mountain safari vehicle with driver</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>360Â° summit viewpoint of 9 Central Highland peaks</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Wild buffalo, deer and endemic eagle sightings</span>
+                </div>
+              </div>
+
+              <!-- Accordion Toggle -->
+              <button class="itinerary-toggle" type="button">
+                <span class="itinerary-btn-text">View Day-by-Day Plan</span>
+                <span class="itinerary-arrow">â–¼</span>
+              </button>
+              <div class="itinerary-drawer">
+                <div class="itinerary-step"><strong>02:00 PM:</strong> Hotel pickup in custom safari jeep.</div>
+                <div class="itinerary-step"><strong>02:30 PM:</strong> Enter Moon Plains sanctuary; rugged mountain trail climb.</div>
+                <div class="itinerary-step"><strong>03:30 PM:</strong> Arrive at Mini Worldâ€™s End cliff viewpoint.</div>
+                <div class="itinerary-step"><strong>04:45 PM:</strong> Visit Ambewela Farm strawberry terrace cafe for fresh strawberries &amp; cream.</div>
+              </div>
+
+              <div class="tour-card-actions">
+                <button class="btn btn-gold btn-card-book js-open-modal" data-tour="moon-plains">Instant Quote</button>
+                <a href="#" class="btn-card-whatsapp" data-tour-title="Moon Plains Mini World's End 4x4 Safari" data-tour-price="$50">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.177.182-.076.356.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tour Card 6: 3D/2N Ella & Nuwara Eliya Scenic Odyssey -->
+          <article class="tour-card" data-category="multi-day adventure heritage">
+            <div class="tour-image-wrap">
+              <img src="assets/images/bomburu-ella-view.jpg" alt="Highland Odyssey" class="tour-img" loading="lazy">
+              <span class="badge-gold tour-badge-top">Complete Journey</span>
+              <div class="tour-price-tag">
+                <span>From</span>
+                <span class="price-amount" data-base-price="280">$280</span>
+                <span>/ person</span>
+              </div>
+            </div>
+            <div class="tour-content">
+              <div class="tour-meta">
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  3 Days / 2 Nights
+                </span>
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Nuwara Eliya &amp; Ella
+                </span>
+              </div>
+              <h3 class="tour-name">Ella &amp; Nuwara Eliya Scenic Highlands Odyssey</h3>
+              <p class="tour-summary">
+                The grand tour of Sri Lankaâ€™s mountains. Nuwara Eliya town, Bomburu Ella falls, the world-famous blue train ride through mountain clouds, Nine Arch Bridge, Little Adamâ€™s Peak, and Ravana Falls.
+              </p>
+              <div class="tour-features">
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Iconic Blue Train scenic ride (Nanu Oya to Ella) reserved seats</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Bomburu Ella waterfall trek + Nine Arch Bridge sunrise</span>
+                </div>
+                <div class="feature-point">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>2 Nights handpicked mountain boutique accommodation</span>
+                </div>
+              </div>
+
+              <!-- Accordion Toggle -->
+              <button class="itinerary-toggle" type="button">
+                <span class="itinerary-btn-text">View Day-by-Day Plan</span>
+                <span class="itinerary-arrow">â–¼</span>
+              </button>
+              <div class="itinerary-drawer">
+                <div class="itinerary-step"><strong>Day 1:</strong> Nuwara Eliya city, Pedro tea factory &amp; Lake Gregory boating.</div>
+                <div class="itinerary-step"><strong>Day 2:</strong> Morning Bomburu Ella waterfall trek, afternoon Blue Train to Ella.</div>
+                <div class="itinerary-step"><strong>Day 3:</strong> Nine Arch Bridge viaduct, Little Adam's Peak &amp; Ravana Falls.</div>
+              </div>
+
+              <div class="tour-card-actions">
+                <button class="btn btn-gold btn-card-book js-open-modal" data-tour="ella-nuwaraeliya">Instant Quote</button>
+                <a href="#" class="btn-card-whatsapp" data-tour-title="Ella & Nuwara Eliya Scenic Highlands Odyssey" data-tour-price="$280">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.177.182-.076.356.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INTERACTIVE DESTINATIONS GUIDE & HOTSPOTS

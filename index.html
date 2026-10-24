@@ -9,9 +9,7 @@
   <!-- SEO Meta Tags -->
   <meta name="description"
     content="Experience the timeless magic of Nuwara Eliya with Highland Heritage Travels. Curated private tours, Pedro tea plantations, Lake Gregory, Bomburu Ella waterfall treks, and Horton Plains expeditions with certified local chauffeur guides.">
-  <meta name="keywords"
-    content="Nuwara Eliya tour, Highland Heritage Travels, Sri Lanka hill country tours, Bomburu Ella waterfalls, Lake Gregory boating, Pedro tea estate, Horton Plains Worlds End, luxury Sri Lanka chauffeur">
-  <meta name="author" content="Highland Heritage Travels">
+  <meta name="keywords"  <meta name="author" content="Highland Heritage Travels">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph / Social Media -->
@@ -66,8 +64,14 @@
           </select>
         </div>
 
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode"
+          aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+          <span class="theme-toggle-label">Dark mode</span>
+        </button>
+
         <!-- WhatsApp Quick Action Button -->
-        <a href="https://wa.me/940741233175?text=Hello%20Highland%20Heritage%20Travels%2C%20I%20would%20like%20to%20inquire%20about%20tours%20in%20Nuwara%20Eliya."
+        <a href="https://wa.me/94741233175?text=Hello%20Highland%20Heritage%20Travels%2C%20I%20would%20like%20to%20inquire%20about%20tours%20in%20Nuwara%20Eliya."
           target="_blank" rel="noopener noreferrer" class="btn-whatsapp-header" id="btnNavWhatsApp">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path
@@ -111,9 +115,9 @@
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
-          <button class="btn btn-outline-gold js-open-modal" data-tour="little-england" id="heroCustomQuoteBtn">
-            <span>Plan Custom Itinerary</span>
-          </button>
+          <a href="#reviews" class="btn btn-outline-gold" id="heroReviewsBtn">
+            <span>Read Guest Reviews</span>
+          </a>
         </div>
 
         <!-- Fast Booking Bar -->
@@ -132,7 +136,6 @@
               <option value="trip-04">Trip 04 • Mandaram Nuwara Village &amp; Culture</option>
               <option value="trip-05">Trip 05 • City Tour &amp; Scenic Highlights</option>
               <option value="trip-06">Trip 06 • World’s End &amp; Ambewela Adventure</option>
-              <option value="custom-tour">Custom Tour • Choose Your Places</option>
             </select>
           </div>
 
@@ -173,9 +176,9 @@
             <label class="booking-label" for="heroVehicleSelect">Vehicle</label>
             <select class="booking-select" id="heroVehicleSelect">
               <option value="" selected>Select vehicle</option>
-              <option value="three-wheeler">Three-wheeler (Tuk-tuk)</option>
-              <option value="car" disabled>Car (prices coming soon)</option>
-              <option value="van" disabled>Van (prices coming soon)</option>
+              <option value="three-wheeler">Three-wheeler (up to 2 people)</option>
+              <option value="car">Car (up to 3 people)</option>
+              <option value="van">Van (4+ people)</option>
             </select>
             <p class="booking-price-preview" id="heroVehiclePricePreview" aria-live="polite" hidden></p>
           </div>
@@ -315,7 +318,7 @@
 
           <article class="tour-card" data-category="day-tour adventure heritage">
             <div class="tour-image-wrap">
-              <img src="assets/images/trips/trip 1.jpeg" alt="Boburu Ella and Hakgala tour" class="tour-img"
+              <img src="assets/images/boburu ella/bomburu-ella-waterfall.jpg" alt="Boburu Ella and Hakgala tour" class="tour-img"
                 loading="lazy">
               <span class="badge-gold tour-badge-top">Trip 01</span>
               <div class="tour-price-tag">
@@ -396,7 +399,7 @@
 
           <article class="tour-card" data-category="day-tour adventure heritage">
             <div class="tour-image-wrap">
-              <img src="assets/images/trips/trip 2.jpeg" alt="Ramboda waterfall and tea factory tour" class="tour-img"
+              <img src="assets/images/Ramboda/06cf642f38e6a293aef125c57886ed7e.jpg" alt="Ramboda waterfall and tea factory tour" class="tour-img"
                 loading="lazy">
               <span class="badge-emerald tour-badge-top">Trip 02</span>
               <div class="tour-price-tag">
@@ -453,7 +456,7 @@
 
           <article class="tour-card" data-category="day-tour heritage adventure">
             <div class="tour-image-wrap">
-              <img src="assets/images/trips/trip 3.jpeg" alt="Victoria botanical garden and moonplain tour"
+              <img src="assets/images/victoria park/v4.jpg" alt="Victoria botanical garden and moonplain tour"
                 class="tour-img" loading="lazy">
               <span class="badge-gold tour-badge-top">Trip 03</span>
               <div class="tour-price-tag">
@@ -509,7 +512,7 @@
 
           <article class="tour-card" data-category="day-tour heritage">
             <div class="tour-image-wrap">
-              <img src="assets/images/trips/trip 4.jpeg" alt="Mandaram Nuwara village and tea estate" class="tour-img"
+              <img src="assets/images/mandaram nuwara/m02.jpg" alt="Mandaram Nuwara village and tea estate" class="tour-img"
                 loading="lazy">
               <span class="badge-gold tour-badge-top">Trip 04</span>
               <div class="tour-price-tag">
@@ -567,7 +570,7 @@
 
           <article class="tour-card" data-category="day-tour adventure heritage">
             <div class="tour-image-wrap">
-              <img src="assets/images/trips/trip 5.jpeg" alt="City tour and moonplain route" class="tour-img"
+              <img src="assets/images/nuwara eliya/002.jpg" alt="City tour and moonplain route" class="tour-img"
                 loading="lazy">
               <span class="badge-emerald tour-badge-top">Trip 05</span>
               <div class="tour-price-tag">
@@ -624,7 +627,7 @@
 
           <article class="tour-card" data-category="adventure day-tour heritage">
             <div class="tour-image-wrap">
-              <img src="assets/images/trips/trip 6.jpeg" alt="World End and Ambewela tour" class="tour-img"
+              <img src="assets/images/world end/w1.jpg" alt="World End and Ambewela tour" class="tour-img"
                 loading="lazy">
               <span class="badge-gold tour-badge-top">Trip 06</span>
               <div class="tour-price-tag">
@@ -873,6 +876,7 @@
           <button class="gallery-filter-btn" data-gallery-filter="waterfall">Waterfalls &amp; Treks</button>
           <button class="gallery-filter-btn" data-gallery-filter="lake">Lake Gregory</button>
           <button class="gallery-filter-btn" data-gallery-filter="tea">Tea Estates</button>
+          <button class="gallery-filter-btn" data-gallery-filter="gardens">Gardens</button>
           <button class="gallery-filter-btn" data-gallery-filter="travelers">Guest Smiles</button>
         </div>
 
@@ -907,16 +911,6 @@
             </div>
           </div>
 
-          <!-- Item 4 -->
-          <div class="gallery-item" data-gallery-category="tea">
-            <img src="assets/images/lake gregory/tea-estate-hills.jpg" alt="Emerald Ceylon Tea Hills"
-              class="gallery-img" loading="lazy">
-            <div class="gallery-overlay">
-              <h4 class="gallery-item-title">Endless Emerald Carpets</h4>
-              <span class="gallery-item-location">Pedro Tea Plantation</span>
-            </div>
-          </div>
-
           <!-- Item 5 -->
           <div class="gallery-item" data-gallery-category="lake">
             <img src="assets/images/lake gregory/lake-gregory-boats.jpg" alt="Boating at Lake Gregory"
@@ -929,7 +923,7 @@
 
           <!-- Item 6 -->
           <div class="gallery-item" data-gallery-category="travelers">
-            <img src="assets/images/lake gregory/lake-gregory-bench.jpg" alt="Lake Gregory promenade"
+            <img src="assets/images/lake gregory/bench.jpg" alt="Lake Gregory promenade"
               class="gallery-img" loading="lazy">
             <div class="gallery-overlay">
               <h4 class="gallery-item-title">Lake Gregory Promenade</h4>
@@ -937,9 +931,19 @@
             </div>
           </div>
 
+          <!-- Victoria Park -->
+          <div class="gallery-item" data-gallery-category="gardens">
+            <img src="assets/images/victoria park/v4.jpg" alt="Colorful flower beds at Victoria Park"
+              class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-item-title">Victoria Park Flower Gardens</h4>
+              <span class="gallery-item-location">Nuwara Eliya</span>
+            </div>
+          </div>
+
           <!-- Item 7 -->
           <div class="gallery-item" data-gallery-category="travelers">
-            <img src="assets/images/lake gregory/nuwara-eliya-town.jpg" alt="Town view in Nuwara Eliya"
+            <img src="assets/images/nuwara eliya/002.jpg" alt="Historic red post office in Nuwara Eliya"
               class="gallery-img" loading="lazy">
             <div class="gallery-overlay">
               <h4 class="gallery-item-title">Town &amp; High Country Charm</h4>
@@ -957,6 +961,16 @@
             </div>
           </div>
 
+          <!-- Tea-picking visitors -->
+          <div class="gallery-item" data-gallery-category="travelers">
+            <img src="assets/images/pedro estate/p6.jpg" alt="Visitors picking tea leaves at Pedro Tea Estate"
+              class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-item-title">Tea Picking Together</h4>
+              <span class="gallery-item-location">Pedro Tea Estate</span>
+            </div>
+          </div>
+
           <!-- Item 9 -->
           <div class="gallery-item span-2" data-gallery-category="tea">
             <img src="assets/images/hero-nuwara-eliya.jpg" alt="Nuwara Eliya Sunrise Panorama" class="gallery-img"
@@ -969,7 +983,7 @@
 
           <!-- Item 10 -->
           <div class="gallery-item" data-gallery-category="waterfall">
-            <img src="assets/images/lake gregory/lovers-leap-falls.jpg" alt="Lovers Leap waterfall" class="gallery-img"
+            <img src="assets/images/Ramboda/r3.jpg" alt="Waterfall in Sri Lanka’s central highlands" class="gallery-img"
               loading="lazy">
             <div class="gallery-overlay">
               <h4 class="gallery-item-title">Lovers Leap Romantic Falls</h4>
@@ -998,58 +1012,104 @@
     <section class="section-reviews" id="reviews">
       <div class="container">
         <div class="text-center">
-          <span class="section-tag">Traveler Stories</span>
-          <h2 class="section-title">Enduring Memories from Our Guests</h2>
+          <span class="section-tag">Traveler Photos</span>
+          <h2 class="section-title">Guest Memories from the Highlands</h2>
           <p class="section-subtitle">
-            Read real feedback from international travelers who experienced Nuwara Eliya with Highland Heritage Travels.
+            Browse photos shared by guests during their visits to the Central Highlands. Written reviews will be added
+            as guests share them.
           </p>
         </div>
 
         <div class="reviews-grid">
           <div class="review-card">
-            <div class="review-stars">★★★★★</div>
+            <img class="review-photo" src="assets/images/review/WhatsApp%20Image%202026-10-03%20at%2010.42.15%20AM.jpeg"
+              alt="Travelers walking together through a lush tea estate" loading="lazy">
+            <span class="review-theme">Tea estate walk</span>
             <p class="review-text">
-              "The trek to Bomburu Ella was the absolute highlight of our 2-week trip in Sri Lanka! Our chauffeur guide
-              was knowledgeable, courteous, and took us along secret scenic pathways where other tour buses didn't go.
-              The Lake Gregory boating and Pedro tea factory were seamlessly arranged."
+              A guest-shared photo from a walk among the tea bushes in Nuwara Eliya’s tea country.
             </p>
             <div class="reviewer-meta">
-              <div class="reviewer-avatar">EH</div>
               <div>
-                <h4 class="reviewer-name">Edward &amp; Helen Davies</h4>
-                <span class="reviewer-origin">London, United Kingdom • Classic Day Tour</span>
+                <h4 class="reviewer-name">A moment among the tea fields</h4>
+                <span class="reviewer-origin">Guest photo • Nuwara Eliya</span>
               </div>
             </div>
           </div>
 
           <div class="review-card">
-            <div class="review-stars">★★★★★</div>
+            <img class="review-photo" src="assets/images/review/WhatsApp%20Image%202026-10-03%20at%2012.20.02%20PM.jpeg"
+              alt="Travelers posing together beside the Labookellie tea estate sign" loading="lazy">
+            <span class="review-theme">Labookellie tea country</span>
             <p class="review-text">
-              "Booking through WhatsApp was effortless. We asked for a custom itinerary with Horton Plains sunrise and
-              high tea at the Grand Hotel. Everything was synchronized down to the minute. The vehicle was spotless and
-              spacious for our family of four. Highest recommendation!"
+              Travelers pose beside the Labookellie sign, with the tea-covered hills in the background.
             </p>
             <div class="reviewer-meta">
-              <div class="reviewer-avatar">SM</div>
               <div>
-                <h4 class="reviewer-name">Sophie Müller</h4>
-                <span class="reviewer-origin">Munich, Germany • 2D/1N Tea Retreat</span>
+                <h4 class="reviewer-name">A stop at Labookellie</h4>
+                <span class="reviewer-origin">Guest photo • Tea estate visit</span>
               </div>
             </div>
           </div>
 
           <div class="review-card">
-            <div class="review-stars">★★★★★</div>
+            <img class="review-photo" src="assets/images/review/WhatsApp%20Image%202026-10-03%20at%2012.22.46%20PM.jpeg"
+              alt="Travelers sharing a photo beside a highland waterfall" loading="lazy">
+            <span class="review-theme">Waterfall adventure</span>
             <p class="review-text">
-              "The 3D/2N Nuwara Eliya to Ella tour was sensational. From waking up in the crisp mountain air to riding
-              the legendary blue train through misty pine forests, Highland Heritage Travels looked after us like VIPs.
-              Unbeatable value and heartfelt hospitality."
+              A guest photo from a stop beside one of the Central Highlands’ waterfalls.
             </p>
             <div class="reviewer-meta">
-              <div class="reviewer-avatar">AR</div>
               <div>
-                <h4 class="reviewer-name">Anand &amp; Priya Rao</h4>
-                <span class="reviewer-origin">Bangalore, India • Ella &amp; Nuwara Eliya Odyssey</span>
+                <h4 class="reviewer-name">A highland waterfall visit</h4>
+                <span class="reviewer-origin">Guest photo • Waterfall stop</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <img class="review-photo"
+              src="assets/images/reviews/WhatsApp%20Image%202026-10-21%20at%2011.05.43%20PM.jpeg"
+              alt="Travelers smiling together beside a tuk-tuk" loading="lazy">
+            <span class="review-theme">A trip-day photo</span>
+            <p class="review-text">
+              Travelers pause for a photo together during a day exploring Sri Lanka’s Central Highlands.
+            </p>
+            <div class="reviewer-meta">
+              <div>
+                <h4 class="reviewer-name">On the road together</h4>
+                <span class="reviewer-origin">Guest photo • Highland journey</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <img class="review-photo"
+              src="assets/images/reviews/WhatsApp%20Image%202026-10-21%20at%2011.05.42%20PM.jpeg"
+              alt="Guests posing with their local guide in a Nuwara Eliya garden" loading="lazy">
+            <span class="review-theme">A Nuwara Eliya stop</span>
+            <p class="review-text">
+              Guests pose with their guide among the gardens and attractions of Nuwara Eliya.
+            </p>
+            <div class="reviewer-meta">
+              <div>
+                <h4 class="reviewer-name">A garden visit</h4>
+                <span class="reviewer-origin">Guest photo • Nuwara Eliya</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <img class="review-photo"
+              src="assets/images/reviews/WhatsApp%20Image%202026-10-21%20at%2011.01.29%20PM.jpeg"
+              alt="Waterfall surrounded by green forest in the highlands" loading="lazy">
+            <span class="review-theme">Highland waterfall</span>
+            <p class="review-text">
+              A waterfall and forested hills captured on a guest’s highland trip.
+            </p>
+            <div class="reviewer-meta">
+              <div>
+                <h4 class="reviewer-name">Waterfall scenery</h4>
+                <span class="reviewer-origin">Guest photo • Waterfall stop</span>
               </div>
             </div>
           </div>
@@ -1175,7 +1235,7 @@
           <button class="btn btn-gold js-open-modal" data-tour="little-england">
             <span>Get My Custom Quote</span>
           </button>
-          <a href="https://wa.me/940741233175?text=Hello%20Highland%20Heritage%20Travels%2C%20I%20would%20like%20to%20plan%20a%20private%20tour%20in%20Nuwara%20Eliya."
+          <a href="https://wa.me/94741233175?text=Hello%20Highland%20Heritage%20Travels%2C%20I%20would%20like%20to%20plan%20a%20private%20tour%20in%20Nuwara%20Eliya."
             target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-header"
             style="font-size: 0.95rem; padding: 0.75rem 1.6rem;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -1224,18 +1284,8 @@
                 <option value="trip-04">Trip 04 • Mandaram Nuwara Village &amp; Culture</option>
                 <option value="trip-05">Trip 05 • City Tour &amp; Scenic Highlights</option>
                 <option value="trip-06">Trip 06 • World’s End &amp; Ambewela Adventure</option>
-                <option value="custom-tour">Custom Tour • Choose Your Places</option>
               </select>
             </div>
-
-            <fieldset class="form-group form-full custom-tour-picker" id="customTourPicker" hidden>
-              <legend>Choose your stops</legend>
-              <p class="custom-tour-pricing-note">Round trip starts and ends in Nuwara Eliya town. Visit places in the
-                order you select them. First 10 km: Rs. 3,000; each started km after that: Rs. 100.</p>
-              <div class="custom-tour-place-list" id="customTourPlaceList"></div>
-              <p class="custom-tour-route-status" id="customTourRouteStatus" role="status" aria-live="polite">Select at
-                least one place to calculate your route.</p>
-            </fieldset>
 
             <div class="form-group">
               <label for="modalDateInput">Planned Travel Date</label>
@@ -1257,10 +1307,9 @@
             <div class="form-group form-full">
               <label for="modalVehicleSelect">Vehicle Preference</label>
               <select id="modalVehicleSelect" class="form-control">
-                <option value="three-wheeler" selected>Three-wheeler (Tuk-tuk, up to 3 passengers)</option>
-                <option value="sedan" disabled>Luxury Air-Conditioned Sedan (prices coming soon)</option>
-                <option value="van" disabled>Spacious KDH / HiAce Commuter Van (prices coming soon)</option>
-                <option value="jeep" disabled>Custom Open-Top Mountain 4x4 Jeep (prices coming soon)</option>
+                <option value="three-wheeler" selected>Three-wheeler (up to 2 people)</option>
+                <option value="car">Car (up to 3 people)</option>
+                <option value="van">Van (4+ people)</option>
               </select>
             </div>
 
@@ -1319,7 +1368,7 @@
   </div>
 
   <!-- Floating Sticky WhatsApp Button -->
-  <a href="https://wa.me/940741233175?text=Hello%20Highland%20Heritage%20Travels%2C%20I%20would%20like%20to%20book%20a%20tour%20in%20Nuwara%20Eliya."
+  <a href="https://wa.me/94741233175?text=Hello%20Highland%20Heritage%20Travels%2C%20I%20would%20like%20to%20book%20a%20tour%20in%20Nuwara%20Eliya."
     target="_blank" rel="noopener noreferrer" class="floating-whatsapp" id="floatingWhatsAppBtn"
     aria-label="Chat on WhatsApp">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -1382,28 +1431,28 @@
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            <span>Grand Hotel Road, Nuwara Eliya 22200, Central Province, Sri Lanka</span>
+            <span>Shanthipura, Nuwara Eliya, Sri Lanka</span>
           </div>
           <div class="contact-info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path
                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
-            <span>+94 77 123 4567 / +94 52 222 3456</span>
+            <span><a href="tel:+94741233175">+94 74 123 3175</a> / <a href="tel:+94789846041">+94 78 984 6041</a></span>
           </div>
           <div class="contact-info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
-            <span>reservations@highlandheritagetravels.com</span>
+            <span><a href="mailto:malikofficial2k24@gmail.com">malikofficial2k24@gmail.com</a></span>
           </div>
           <div class="contact-info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
-            <span>Open Daily: 06:30 AM – 09:30 PM (Sri Lanka Time)</span>
+            <span>Open Daily: 08:00 AM – 10:30 PM (Sri Lanka Time)</span>
           </div>
         </div>
       </div>

@@ -27,9 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     'moon-plains': 50,
     'ella-nuwaraeliya': 280
   };
+  const vehicleSurchargesUSD = {
+    'three-wheeler': 0,
+    car: 10,
+    van: 15
+  };
 
   // WhatsApp Configuration - (User can easily change this phone number)
-  const defaultWhatsAppNumber = '940741233175'; // Sri Lanka country code (+94)
+  const defaultWhatsAppNumber = '94741233175'; // Sri Lanka country code (+94)
 
   /* ==========================================================================
      1. STICKY NAVBAR & MOBILE MENU
@@ -37,6 +42,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.site-header');
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navLinks = document.querySelector('.nav-links');
+  const themeToggle = document.getElementById('themeToggle');
+
+  function setTheme(theme) {
+    const isDark = theme === 'dark';
+    document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+      const icon = themeToggle.querySelector('.theme-toggle-icon');
+      const label = themeToggle.querySelector('.theme-toggle-label');
+      if (icon) icon.textContent = isDark ? '☀' : '☾';
+      if (label) label.textContent = isDark ? 'Light mode' : 'Dark mode';
+    }
+  }
+
+  const savedTheme = localStorage.getItem('highland-heritage-theme');
+  setTheme(savedTheme === 'dark' ? 'dark' : 'light');
+  themeToggle?.addEventListener('click', () => {
+    const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    localStorage.setItem('highland-heritage-theme', nextTheme);
+  });
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -67,15 +94,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updatePrices() {
     const { symbol, rate } = currencyRates[currentCurrency];
+    const selectedVehicle = document.getElementById('heroVehicleSelect')?.value;
+    const vehicleSurchargeUSD = vehicleSurchargesUSD[selectedVehicle] || 0;
     document.querySelectorAll('[data-base-price]').forEach(el => {
       const base = parseFloat(el.getAttribute('data-base-price'));
       if (!isNaN(base)) {
         const fractionDigits = currentCurrency === 'LKR' ? 0 : Number(el.dataset.pricePrecision) || 0;
-        const converted = base * rate;
-        el.textContent = `${symbol}${converted.toLocaleString(undefined, {
+        const cardSurcharge = el.closest('.tour-card') ? vehicleSurchargeUSD : 0;
+        const converted = (base + cardSurcharge) * rate;
+        const formattedPrice = `${symbol}${converted.toLocaleString(undefined, {
           minimumFractionDigits: fractionDigits,
           maximumFractionDigits: fractionDigits
         })}`;
+        el.textContent = formattedPrice;
+
+        const whatsappButton = el.closest('.tour-card')?.querySelector('.btn-card-whatsapp');
+        if (whatsappButton) whatsappButton.dataset.tourPrice = `${formattedPrice} per vehicle`;
       }
     });
 
@@ -180,8 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
       photos: [
         'assets/images/lake gregory/lake-gregory-1.jpg',
         'assets/images/lake gregory/lake-gregory-boats.jpg',
-        'assets/images/lake gregory/lake-gregory-bench.jpg',
-        'assets/images/lake gregory/lake-gregory-horse.jpg'
+        'assets/images/lake gregory/bench.jpg',
+        'assets/images/lake gregory/nuwara-eliya-town.jpg'
       ]
     }
   };
@@ -501,14 +535,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   };
 
-  const customTourOrigin = {
-    title: 'Nuwara Eliya Town',
-    coordinates: [6.969, 80.768]
-  };
-  const customTourPlaces = [...new Map(
-    Object.values(tourRouteStops).flat().map(stop => [stop.title, stop])
-  ).values()];
-
   const routeMapInstances = new Map();
 
   function appendRouteSummaryStop(summary, stop, markerClass) {
@@ -664,35 +690,35 @@ document.addEventListener('DOMContentLoaded', () => {
     'lake-gregory': {
       title: 'Lake Gregory & Waterfront Promenade',
       tag: 'Leisure & Water Sports',
-      img: 'assets/images/lake-gregory-1.jpg',
+      img: 'assets/images/lake gregory/lake-gregory-1.jpg',
       desc: 'Nestled in the heart of Nuwara Eliya, Lake Gregory was created during the British colonial era under Governor Sir William Gregory in 1873. Surrounded by misty hills and alpine pine trees, it is the premier spot for scenic water motor-boating, swans pedal-boating, horse riding along the banks, jet skis, and tranquil sunset walks.',
       chips: ['1,868m Elevation', 'Ideal for Families & Couples', '5 mins from Town Center', 'Open 6:00 AM - 7:00 PM']
     },
     'bomburu-ella': {
       title: 'Bomburu Ella Waterfall (Widest Waterfall)',
       tag: 'Untamed Valley Adventure',
-      img: 'assets/images/bomburu-ella-waterfall.jpg',
+      img: 'assets/images/boburu ella/bomburu-ella-waterfall.jpg',
       desc: 'A breathtaking hidden natural wonder located in Perawella near Welimada and Nuwara Eliya. Bomburu Ella (also called Perawella Falls) is famously known as the widest waterfall in Sri Lanka, cascading into numerous natural jungle pools over towering granite cliffs. Our guided trek winds through lush vegetable terrace valleys and mountain rainforests.',
       chips: ['Widest Waterfall in Sri Lanka', 'Guided Nature Trek (1.5 hrs)', 'Hidden Jungle Pools', 'Private Scenic Picnic Lunch']
     },
     'pedro-tea': {
       title: 'Pedro Tea Estate & Lover’s Leap Trail',
       tag: 'Ceylon Tea Heritage',
-      img: 'assets/images/tea-estate-hills.jpg',
+      img: 'assets/images/pedro estate/p3.jpg',
       desc: 'Perched under Mount Pidurutalagala, Sri Lanka’s highest peak, Pedro Estate was established in 1885 and still manufactures authentic Ceylon light-liquor highland tea using 19th-century British machinery. Walk hand-in-hand through velvet green tea bushes, learn the art of orthodox two-leaves-and-a-bud plucking, and savor a freshly brewed cup on the veranda.',
       chips: ['Est. 1885 Colonial Heritage', 'Factory Demonstration', 'Pidurutalagala Mountain Base', 'Artisanal Tea Tasting']
     },
     'horton-plains': {
       title: 'Horton Plains National Park & World’s End',
       tag: 'UNESCO Cloud Forest Biosphere',
-      img: 'assets/images/horton-plains.jpg',
+      img: 'assets/images/hortan plain/28de9f2b3257e65f9eaf62d42597606b.jpg',
       desc: 'A hauntingly mystical plateau at 2,100 meters above sea level where windswept grasslands meet montane cloud forests. The early morning hike reaches the legendary "World’s End", a sheer vertical precipice that plunges 4,000 feet straight down into tea estates below, followed by the roaring crystal waters of Baker’s Falls.',
       chips: ['UNESCO World Heritage', '4,000 ft Sheer Drop Cliff', 'Baker’s Falls Hike', 'Dawn Departures Recommended']
     },
     'colonial-town': {
       title: 'Colonial "Little England" Heritage Tour',
       tag: 'Colonial Architecture & Gardens',
-      img: 'assets/images/nuwara-eliya-town.jpg',
+      img: 'assets/images/nuwara eliya/01.jpg',
       desc: 'Explore Nuwara Eliya’s colonial-era character on a privately arranged heritage tour. See Tudor-style architecture, stroll through manicured gardens, pass the historic golf club, and enjoy optional Ceylon high tea at the Grand Hotel.',
       chips: ['Colonial-Era Architecture', 'Tudor Revival Style', 'Grand Hotel High Tea', 'Victoria Botanical Gardens']
     }
@@ -858,39 +884,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalEstimatePrice = document.getElementById('modalEstimatePrice');
   const modalEstimateBreakdown = document.getElementById('modalEstimateBreakdown');
   const modalEstimateUnit = document.getElementById('modalEstimateUnit');
-  const customTourPicker = document.getElementById('customTourPicker');
-  const customTourPlaceList = document.getElementById('customTourPlaceList');
-  const customTourRouteStatus = document.getElementById('customTourRouteStatus');
   const whatsappSubmitBtn = document.getElementById('whatsappSubmitBtn');
   const bookingForm = document.getElementById('bookingForm');
   const toastNotice = document.getElementById('toastNotice');
   const toastMessage = document.getElementById('toastMessage');
-  const customTourSelection = [];
-  let customTourRouteStatusValue = 'idle';
-  let customTourRouteEstimate = null;
-  let customTourRouteRequestId = 0;
-  let customTourRouteController;
+  const vehicleFitsPassengerCount = (vehicle, passengerCount) => {
+    if (vehicle === 'three-wheeler') return passengerCount <= 2;
+    if (vehicle === 'car') return passengerCount <= 3;
+    if (vehicle === 'van') return passengerCount >= 4;
+    return false;
+  };
+  function updateVehicleAvailability(passengersSelect, vehicleSelect) {
+    if (!passengersSelect || !vehicleSelect) return;
+    const passengerCount = Number(passengersSelect.value);
 
-  customTourPlaces.forEach((stop, index) => {
-    const label = document.createElement('label');
-    label.className = 'custom-tour-place-option';
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.value = stop.title;
-    checkbox.id = `customTourStop${index + 1}`;
-    const name = document.createElement('span');
-    name.textContent = stop.title;
-    label.append(checkbox, name);
-    customTourPlaceList?.appendChild(label);
-
-    checkbox.addEventListener('change', () => {
-      const selectedIndex = customTourSelection.indexOf(stop);
-      if (checkbox.checked && selectedIndex === -1) customTourSelection.push(stop);
-      if (!checkbox.checked && selectedIndex !== -1) customTourSelection.splice(selectedIndex, 1);
-      calculateCustomTourRoute();
+    Array.from(vehicleSelect.options).forEach(option => {
+      option.disabled = Boolean(option.value) &&
+        !vehicleFitsPassengerCount(option.value, passengerCount);
     });
-  });
 
+    const selectedOption = vehicleSelect.options[vehicleSelect.selectedIndex];
+    if (selectedOption?.disabled) {
+      const firstAvailableVehicle = Array.from(vehicleSelect.options)
+        .find(option => option.value && !option.disabled);
+      vehicleSelect.value = firstAvailableVehicle?.value || '';
+    }
+  }
   // Set min date on date inputs to today
   const todayStr = new Date().toISOString().split('T')[0];
   if (modalDateInput) modalDateInput.min = todayStr;
@@ -907,9 +926,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openBookingModal(preselectedTour = 'trip-01') {
+    updateVehicleAvailability(modalGuestsSelect, modalVehicleSelect);
     if (modalTourSelect) modalTourSelect.value = preselectedTour;
-    if (customTourPicker) customTourPicker.hidden = preselectedTour !== 'custom-tour';
-    if (preselectedTour === 'custom-tour') calculateCustomTourRoute();
     calculateModalPrice();
     bookingModal?.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -938,60 +956,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!modalTourSelect || !modalGuestsSelect || !modalEstimatePrice) return;
     const tourKey = modalTourSelect.value;
 
-    if (tourKey === 'custom-tour') {
-      if (customTourRouteStatusValue === 'loading') {
-        modalEstimatePrice.textContent = '…';
-        if (modalEstimateBreakdown) modalEstimateBreakdown.textContent = 'Calculating round-trip driving distance';
-        if (modalEstimateUnit) modalEstimateUnit.textContent = 'Please wait';
-        return null;
-      }
-      if (customTourRouteStatusValue !== 'ready' || !customTourRouteEstimate) {
-        modalEstimatePrice.textContent = '—';
-        if (modalEstimateBreakdown) {
-          modalEstimateBreakdown.textContent = customTourRouteStatusValue === 'error'
-            ? 'Route estimate unavailable. Please try again.'
-            : 'Select at least one place to calculate the route.';
-        }
-        if (modalEstimateUnit) modalEstimateUnit.textContent = 'Custom vehicle quote';
-        return null;
-      }
-
-      const { symbol, rate } = currencyRates[currentCurrency];
-      const lkrToCurrentRate = rate / currencyRates.LKR.rate;
-      const convertedTotal = customTourRouteEstimate.priceLkr * lkrToCurrentRate;
-      const fractionDigits = currentCurrency === 'LKR' ? 0 : 2;
-      const formattedTotal = `${symbol}${convertedTotal.toLocaleString(undefined, {
-        minimumFractionDigits: fractionDigits,
-        maximumFractionDigits: fractionDigits
-      })}`;
-      modalEstimatePrice.textContent = formattedTotal;
-      if (modalEstimateBreakdown) {
-        modalEstimateBreakdown.textContent = `${customTourRouteEstimate.distanceKm.toFixed(1)} km round trip · ${customTourSelection.length} selected ${customTourSelection.length === 1 ? 'place' : 'places'}`;
-      }
-      if (modalEstimateUnit) modalEstimateUnit.textContent = 'Flat rate per vehicle';
-      return {
-        totalUSD: customTourRouteEstimate.priceLkr / currencyRates.LKR.rate,
-        convertedTotal,
-        formattedTotal,
-        symbol,
-        isCustomTour: true,
-        distanceKm: customTourRouteEstimate.distanceKm,
-        priceLkr: customTourRouteEstimate.priceLkr
-      };
-    }
-
     const basePriceUSD = tourPrices[tourKey] || 45;
-    const totalUSD = basePriceUSD;
+    const vehicleSurchargeUSD = vehicleSurchargesUSD[modalVehicleSelect?.value] || 0;
+    const totalUSD = basePriceUSD + vehicleSurchargeUSD;
 
     // Convert to current currency
     const { symbol, rate } = currencyRates[currentCurrency];
     const totalFractionDigits = currentCurrency !== 'LKR' && tourKey.startsWith('trip-') ? 2 : 0;
     const convertedTotal = totalUSD * rate;
     const fractionDigits = currentCurrency === 'LKR' ? 0 : 2;
-    const formatPrice = amount => `${symbol}${amount.toLocaleString(undefined, {
-      minimumFractionDigits: fractionDigits,
-      maximumFractionDigits: fractionDigits
-    })}`;
     const selectedVehicle = modalVehicleSelect?.options[modalVehicleSelect.selectedIndex]?.text.split(' (')[0]
       || 'Three-wheeler';
 
@@ -1005,70 +978,16 @@ document.addEventListener('DOMContentLoaded', () => {
     return { totalUSD, convertedTotal, formattedTotal, symbol };
   }
 
-  async function calculateCustomTourRoute() {
-    customTourRouteController?.abort();
-    const requestId = ++customTourRouteRequestId;
-    customTourRouteEstimate = null;
-
-    if (customTourSelection.length === 0) {
-      customTourRouteStatusValue = 'idle';
-      if (customTourRouteStatus) customTourRouteStatus.textContent = 'Select at least one place to calculate your route.';
-      calculateModalPrice();
-      return;
-    }
-
-    customTourRouteStatusValue = 'loading';
-    if (customTourRouteStatus) customTourRouteStatus.textContent = 'Calculating driving distance from Nuwara Eliya town and back…';
-    calculateModalPrice();
-    customTourRouteController = new AbortController();
-    const coordinates = [customTourOrigin, ...customTourSelection, customTourOrigin]
-      .map(stop => `${stop.coordinates[1]},${stop.coordinates[0]}`)
-      .join(';');
-
-    try {
-      const response = await fetch(`https://router.project-osrm.org/route/v1/driving/${coordinates}?overview=false&steps=false`, {
-        signal: customTourRouteController.signal
-      });
-      if (!response.ok) throw new Error('Route service unavailable');
-      const data = await response.json();
-      const distanceMeters = data.routes?.[0]?.distance;
-      if (data.code !== 'Ok' || !Number.isFinite(distanceMeters)) throw new Error('No driving route found');
-      if (requestId !== customTourRouteRequestId) return;
-
-      const distanceKm = distanceMeters / 1000;
-      const extraKm = Math.max(0, Math.ceil(distanceKm - 10));
-      const priceLkr = 3000 + extraKm * 100;
-      customTourRouteEstimate = { distanceKm, extraKm, priceLkr };
-      customTourRouteStatusValue = 'ready';
-      if (customTourRouteStatus) {
-        customTourRouteStatus.textContent = `${distanceKm.toFixed(1)} km round trip · Rs. ${priceLkr.toLocaleString()} per vehicle`;
-      }
-      calculateModalPrice();
-    } catch (error) {
-      if (error.name === 'AbortError' || requestId !== customTourRouteRequestId) return;
-      customTourRouteStatusValue = 'error';
-      if (customTourRouteStatus) customTourRouteStatus.textContent = 'Could not calculate the route. Check your connection and try another selection.';
-      calculateModalPrice();
-    }
-  }
-
-  modalTourSelect?.addEventListener('change', () => {
-    const isCustomTour = modalTourSelect.value === 'custom-tour';
-    if (customTourPicker) customTourPicker.hidden = !isCustomTour;
-    if (isCustomTour) calculateCustomTourRoute();
-    else {
-      customTourRouteController?.abort();
-      customTourRouteRequestId += 1;
-      calculateModalPrice();
-    }
-  });
-
   // Bind change events to recalculate live
   [modalTourSelect, modalGuestsSelect, modalVehicleSelect].forEach(el => {
     el?.addEventListener('change', calculateModalPrice);
   });
+  modalGuestsSelect?.addEventListener('change', () => {
+    updateVehicleAvailability(modalGuestsSelect, modalVehicleSelect);
+    calculateModalPrice();
+  });
 
-  // Handle WhatsApp Submission with customized itinerary message
+  // Handle WhatsApp booking submission
   if (whatsappSubmitBtn) {
     whatsappSubmitBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -1082,10 +1001,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const priceData = calculateModalPrice();
       const estPrice = priceData ? priceData.formattedTotal : '$90';
-      const isCustomTour = modalTourSelect?.value === 'custom-tour';
 
-      if (isCustomTour && (!customTourSelection.length || customTourRouteStatusValue !== 'ready')) {
-        showToast('Select at least one place and wait for the route estimate before sending.');
+      if (!modalVehicleSelect?.value ||
+        !vehicleFitsPassengerCount(modalVehicleSelect.value, Number(guests))) {
+        showToast('Choose a vehicle that fits the number of travelers.');
+        modalVehicleSelect?.focus();
         return;
       }
 
@@ -1095,24 +1015,26 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Build structured WhatsApp message
-      const customRouteDetails = isCustomTour
-        ? `📍 *Selected Places:* ${encodeURIComponent(customTourSelection.map(stop => stop.title).join(' → '))}%0A` +
-        `📏 *Round-trip Distance:* ${customTourRouteEstimate.distanceKm.toFixed(1)} km%0A`
-        : '';
-      const message = `🌿 *HIGHLAND HERITAGE TRAVELS - TOUR INQUIRY* 🌿%0A%0A` +
-        `👤 *Guest Name:* ${encodeURIComponent(name)}%0A` +
-        `📱 *Contact / WhatsApp:* ${encodeURIComponent(phone || 'Via this chat')}%0A` +
-        `🏔️ *Selected Tour:* ${encodeURIComponent(tourName)}%0A` +
-        `📅 *Planned Travel Date:* ${encodeURIComponent(travelDate)}%0A` +
-        `👥 *Number of Travelers:* ${encodeURIComponent(guests)} Guests%0A` +
-        `🚗 *Vehicle Preference:* ${encodeURIComponent(vehicle)}%0A` +
-        customRouteDetails +
-        `💰 *Estimated Vehicle Cost:* ${encodeURIComponent(estPrice)} (${currentCurrency}) per vehicle%0A` +
-        `📝 *Special Notes/Requests:* ${encodeURIComponent(notes)}%0A%0A` +
-        `_Hello Highland Heritage Travels team, I would like to confirm availability and discuss booking this tour in Nuwara Eliya!_`;
+      const messageLines = [
+        '🌿 *HIGHLAND HERITAGE TRAVELS - TOUR BOOKING REQUEST* 🌿',
+        '',
+        `👤 *Guest Name:* ${name}`,
+        `📱 *Contact / WhatsApp:* ${phone || 'Not provided'}`,
+        `🏔️ *Selected Tour:* ${tourName}`,
+        `📅 *Planned Travel Date:* ${travelDate}`,
+        `👥 *Number of Travelers:* ${guests} Guests`,
+        `🚗 *Vehicle Preference:* ${vehicle}`
+      ];
 
-      const whatsappUrl = `https://wa.me/${defaultWhatsAppNumber}?text=${message}`;
+      messageLines.push(
+        `💰 *Estimated Vehicle Cost:* ${estPrice} (${currentCurrency}) per vehicle`,
+        `📝 *Special Notes/Requests:* ${notes}`,
+        '',
+        '_Please confirm availability and help me complete this booking._'
+      );
+
+      const message = messageLines.join('\n');
+      const whatsappUrl = `https://wa.me/${defaultWhatsAppNumber}?${new URLSearchParams({ text: message })}`;
 
       // Open WhatsApp in new tab
       window.open(whatsappUrl, '_blank');
@@ -1130,18 +1052,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroTourSelect = document.getElementById('heroTourSelect');
   const heroGuestsSelect = document.getElementById('heroGuestsSelect');
 
+  updateVehicleAvailability(heroGuestsSelect, heroVehicleSelect);
+  updateVehicleAvailability(modalGuestsSelect, modalVehicleSelect);
+
   function updateHeroVehiclePrice() {
     if (!heroVehicleSelect || !heroPricePreview) return;
-    const isThreeWheeler = heroVehicleSelect.value === 'three-wheeler';
-    heroPricePreview.hidden = !isThreeWheeler;
-    if (!isThreeWheeler) return;
+    const selectedVehicle = heroVehicleSelect.value;
+    heroPricePreview.hidden = !selectedVehicle;
+    if (!selectedVehicle) return;
 
     const tourKey = heroTourSelect?.value || 'trip-01';
-    if (tourKey === 'custom-tour') {
-      heroPricePreview.textContent = 'Choose places in the quote form for a round-trip vehicle estimate';
-      return;
-    }
-    const pricePerGuestUSD = tourPrices[tourKey] || 45;
+    const pricePerGuestUSD = (tourPrices[tourKey] || 45) + (vehicleSurchargesUSD[selectedVehicle] || 0);
     const { symbol, rate } = currencyRates[currentCurrency];
     const fractionDigits = currentCurrency !== 'LKR' && tourKey.startsWith('trip-') ? 2 : 0;
     const vehiclePrice = pricePerGuestUSD * rate;
@@ -1152,8 +1073,13 @@ document.addEventListener('DOMContentLoaded', () => {
     heroPricePreview.textContent = `${symbol}${formatPrice(vehiclePrice)} total per vehicle`;
   }
 
-  [heroVehicleSelect, heroTourSelect, heroGuestsSelect].forEach(input => {
+  heroVehicleSelect?.addEventListener('change', updatePrices);
+  [heroTourSelect, heroGuestsSelect].forEach(input => {
     input?.addEventListener('change', updateHeroVehiclePrice);
+  });
+  heroGuestsSelect?.addEventListener('change', () => {
+    updateVehicleAvailability(heroGuestsSelect, heroVehicleSelect);
+    updatePrices();
   });
 
   if (heroBookingBtn) {
@@ -1165,7 +1091,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (modalDateInput && heroDate) modalDateInput.value = heroDate;
       if (modalGuestsSelect && heroGuests) modalGuestsSelect.value = heroGuests;
-      if (modalVehicleSelect && heroVehicleSelect?.value) modalVehicleSelect.value = heroVehicleSelect.value;
+      updateVehicleAvailability(modalGuestsSelect, modalVehicleSelect);
+      if (modalVehicleSelect && heroVehicleSelect?.value &&
+        vehicleFitsPassengerCount(heroVehicleSelect.value, Number(heroGuests))) {
+        modalVehicleSelect.value = heroVehicleSelect.value;
+      }
 
       openBookingModal(heroTour);
     });

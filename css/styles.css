@@ -58,6 +58,25 @@
   --radius-pill: 9999px;
 }
 
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --primary-mist: #20372b;
+  --primary-emerald: #62a982;
+  --primary-light: #78bd98;
+  --gold-warm: #e2c45f;
+  --slate-800: #e2e9e4;
+  --slate-700: #ccd7cf;
+  --slate-600: #aebdb3;
+  --slate-300: #75877b;
+  --slate-100: #29372e;
+  --cream-white: #111a15;
+  --cream-card: #1a261f;
+  --card-border: rgba(212, 175, 55, 0.24);
+  --glass-bg: rgba(10, 24, 17, 0.94);
+  --glass-border: rgba(212, 175, 55, 0.25);
+  --glass-card: rgba(26, 38, 31, 0.97);
+}
+
 /* Base Reset & Typography */
 *,
 *::before,
@@ -174,6 +193,16 @@ textarea {
   color: var(--primary-deep);
   line-height: 1.25;
   margin-bottom: 1rem;
+}
+
+:root[data-theme="dark"] .section-title,
+:root[data-theme="dark"] .highlight-title,
+:root[data-theme="dark"] .reviewer-name,
+:root[data-theme="dark"] .faq-question,
+:root[data-theme="dark"] .tour-name,
+:root[data-theme="dark"] .dest-preview-title,
+:root[data-theme="dark"] .dest-tab-title {
+  color: #e2e9e4;
 }
 
 .section-subtitle {
@@ -338,6 +367,39 @@ textarea {
 .currency-select option {
   background: var(--primary-forest);
   color: #ffffff;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 40px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  background: rgba(7, 31, 22, 0.55);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 3px;
+}
+
+.theme-toggle-icon {
+  font-size: 1.05rem;
+  line-height: 1;
 }
 
 .currency-select-wrapper::after {
@@ -711,6 +773,14 @@ textarea {
   position: relative;
 }
 
+:root[data-theme="dark"] .section-tours {
+  background: #151f19;
+}
+
+:root[data-theme="dark"] .section-faq {
+  background: #151f19;
+}
+
 .tour-filter-bar {
   display: flex;
   align-items: center;
@@ -730,6 +800,25 @@ textarea {
   border: 1px solid rgba(20, 78, 56, 0.15);
   cursor: pointer;
   transition: var(--transition-fast);
+}
+
+:root[data-theme="dark"] .filter-btn,
+:root[data-theme="dark"] .tour-card,
+:root[data-theme="dark"] .faq-item,
+:root[data-theme="dark"] .booking-modal-card {
+  background: var(--cream-card);
+  color: var(--slate-800);
+}
+
+:root[data-theme="dark"] .tour-card .tour-name,
+:root[data-theme="dark"] .faq-item .faq-question {
+  color: #e2e9e4;
+}
+
+:root[data-theme="dark"] .filter-btn:hover,
+:root[data-theme="dark"] .filter-btn.active {
+  background: var(--primary-emerald);
+  color: #071f16;
 }
 
 .filter-btn:hover,
@@ -772,9 +861,7 @@ textarea {
 .tour-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background: #f3f0e8;
-  padding: 0.35rem;
+  object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -1739,12 +1826,13 @@ textarea {
   background: var(--cream-card);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
-  padding: 2.25rem 2rem;
+  padding: 1rem 1rem 1.5rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   position: relative;
   transition: var(--transition-smooth);
+  overflow: hidden;
 }
 
 .review-card:hover {
@@ -1753,15 +1841,24 @@ textarea {
   border-color: var(--gold-primary);
 }
 
-.review-stars {
-  color: #f59e0b;
-  font-size: 1.1rem;
+.review-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 6px);
   margin-bottom: 1.25rem;
-  letter-spacing: 2px;
+}
+
+.review-theme {
+  color: var(--primary-emerald);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
 }
 
 .review-text {
-  font-style: italic;
   color: var(--slate-700);
   font-size: 0.95rem;
   line-height: 1.7;
@@ -1988,64 +2085,6 @@ textarea {
   grid-column: span 2;
 }
 
-.custom-tour-picker[hidden] {
-  display: none;
-}
-
-.custom-tour-picker {
-  min-width: 0;
-  padding: 1rem;
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-sm);
-}
-
-.custom-tour-picker legend {
-  padding: 0 0.35rem;
-  color: var(--primary-deep);
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.custom-tour-pricing-note,
-.custom-tour-route-status {
-  margin: 0;
-  color: var(--slate-600);
-  font-size: 0.78rem;
-  line-height: 1.5;
-}
-
-.custom-tour-place-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 0.45rem;
-  max-height: 210px;
-  overflow-y: auto;
-  margin: 0.25rem 0;
-  padding: 0.2rem;
-}
-
-.custom-tour-place-option {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  min-width: 0;
-  padding: 0.55rem;
-  border: 1px solid #d8dfdb;
-  border-radius: var(--radius-sm);
-  background: #ffffff;
-  color: var(--slate-800);
-  font-size: 0.78rem;
-  line-height: 1.35;
-  cursor: pointer;
-}
-
-.custom-tour-place-option input {
-  flex: 0 0 auto;
-  margin-top: 0.1rem;
-  accent-color: var(--primary-emerald);
-}
-
 .form-group {
   display: flex;
   flex-direction: column;
@@ -2069,6 +2108,18 @@ textarea {
   background: #fdfdfd;
   transition: var(--transition-fast);
   width: 100%;
+}
+
+:root[data-theme="dark"] .form-control,
+:root[data-theme="dark"] .currency-select {
+  background-color: #202d25;
+  color: var(--slate-900);
+  border-color: #46574b;
+}
+
+:root[data-theme="dark"] .currency-select option {
+  background: #202d25;
+  color: var(--slate-900);
 }
 
 .form-control:focus {
